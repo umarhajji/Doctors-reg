@@ -1,0 +1,20 @@
+.demo-table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.mat-form-field{
+  font-size: 14px;
+  width: 100%;
+}
+.mat-column-id {
+  width: 32px;
+  border-right: 1px solid currentColor;
+  padding-right: 24px;
+  text-align: center;
+}

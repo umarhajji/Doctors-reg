@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="">
+    <mat-card>
+      <mat-card-title>
+        Register Doctor
+      </mat-card-title>
+      <mat-card-content>
+        <form class="form" [formGroup]="registerForm" (ngSubmit)="registerDoc()">
+          <mat-form-field>
+            <mat-label>Enter Name</mat-label>
+            <input matInput formControlName ="name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput formControlName ="username">
+          </mat-form-field>
+
+          <mat-form-field>
+
+            <input matInput type=email name="email"
+                   placeholder="Email" formControlName="email">
+
+                   <mat-error *ngIf="email.errors?.['required']">The email is mandatory.</mat-error>
+
+                   <mat-error *ngIf="email.errors?.['minlength']">
+                       Your email must have minimum {{email.errors?.['minlength'].requiredLength}} chars,
+                       but it only has {{email.errors?.['minlength'].actualLength}}.
+                   </mat-error>
+
+                   <mat-error *ngIf="email.errors?.['email']">This is not a valid email.</mat-error>
+
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input matInput type="tel" formControlName ="phone" name="phone" >
+            <mat-error *ngIf="phone.errors?.['pattern'] ">Phone Number must be numeric</mat-error>
+              <mat-error *ngIf="phone.errors?.['required'] ">Phone Number is Required</mat-error>
+              <mat-error *ngIf="phone.errors?.['minlength']">
+                Your number must have minimum {{phone.errors?.['minlength'].requiredLength}} numbers,
+                but it only has {{phone.errors?.['minlength'].actualLength}}.
+            </mat-error>
+            <mat-error *ngIf="phone.errors?.['maxlength']">
+              Your number must have maximum {{phone.errors?.['maxlength'].requiredLength}} numbers,
+              but it  has {{phone.errors?.['maxlength'].actualLength}}.
+            </mat-error>
+
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>City</mat-label>
+            <input matInput formControlName ="city"  >
+            <mat-error *ngIf="city.errors?.['required']">City is Required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Website</mat-label>
+            <input matInput type= url formControlName ="website" name="website">
+            <mat-error *ngIf="website.errors?.['required']">Website is Required</mat-error>
+            <mat-error *ngIf="website.errors?.['pattern']">please enter a correct url/site</mat-error>
+          </mat-form-field>
+
+          <button type="submit" mat-raised-button color="primary"  [disabled]="!registerForm.valid" >
+            Register
+          </button>
+
+
+        </form>
+
+      </mat-card-content>
+    </mat-card>
+
+
+      </div>
+</div>
