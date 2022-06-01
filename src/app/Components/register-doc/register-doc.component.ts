@@ -37,7 +37,7 @@ registerForm = this.fb.group({
     updateOn: 'blur'
   }],
   website: ['', {
-    validators: [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')], updateOn: 'blur'
+    validators: [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]
   }]
   })
 
@@ -63,6 +63,7 @@ registerForm = this.fb.group({
     this.doctorsService.addDoctor(this.registerForm.value).subscribe({
       next:(res)=>{
         alert("Doctor Added Successfully")
+        this.registerForm.reset();
         this.router.navigateByUrl('');
       },
       error:()=>{
